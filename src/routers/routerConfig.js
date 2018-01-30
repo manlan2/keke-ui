@@ -2,6 +2,9 @@
  * Created by Administrator on 2018/1/17 0017.
  */
 import Home from '../models/Home/home.vue'
+import HomePage from '../models/loginOut/HomePage.vue'
+import login from '../models/loginOut/login.vue'
+import index from '../models/loginOut/index.vue'
 import Form from '../models/Home/Form.vue'
 import button from '../components/button.vue'
 import datePicker from '../components/DatePicker.vue'
@@ -19,7 +22,30 @@ import charts from '../components/echarts.vue'
 export  default {
 
   routes:[
+
     {
+      path:'/HomePage',
+      component:HomePage,
+      children:[
+
+        {
+          path:'/',
+          component:index
+        },
+        {
+          path:'/index',
+          component:index
+        },
+        {
+          path:'/toLogin',
+          component:login
+        }
+      ]
+    },
+
+    {
+
+
       path:'/home',
       component:Home,
       children:[

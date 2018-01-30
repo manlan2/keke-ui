@@ -1,0 +1,45 @@
+[class^="keke-icon"], [class*=" kekeFamily"] {
+  font-family:"fontFamily" !important;
+  /* 以下内容参照第三方图标库本身的规则 */
+  font-size: 18px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+@font-face {font-family: "kekeFamily";
+  src: url('iconfont.eot?t=1516861937418'); /* IE9*/
+  src: url('iconfont.eot?t=1516861937418#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
+  url('iconfont.ttf?t=1516861937418') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1516861937418#kekeFamily') format('svg'); /* iOS 4.1- */
+}
+
+.kekeFamily {
+  font-family:"kekeFamily" !important;
+  font-size:18px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+  margin-right: 5px;
+  width: 24px;
+  text-align: center;
+  font-size: 18px;
+
+}
+
+.keke-icon-icon-user:before { content: "\e677"; }
+
+.keke-icon-shouye:before { content: "\e6a2"; }
+
+.keke-icon-daohangqianzhui:before { content: "\e6e4"; }
+
+.keke-icon-shejimulu:before { content: "\e601"; }
+
+.keke-icon-mima:before { content: "\e603"; }
+
+.keke-icon-menu2:before { content: "\e609"; }
+

@@ -3,13 +3,19 @@
     <el-container class="my-container">
 
       <el-header class="my-header">
+        <!--<transition enterActiveClass="animated fadeInLeft" leaveActiveClass="animated fadeOutLeft">-->
+          <div class="head-left" v-show="headLeft">
+            <img class="head-logo" src="./img/wifi.svg"/>
+            <span class="head-name">KEKE-UI</span>
+          </div>
+       <!-- </transition>-->
 
-        <div class="head-left">
-          <img class="head-logo" src="./img/wifi.svg"/>
-          <span class="head-name">KEKE-UI</span>
-        </div>
-
+        <!--添加收缩左侧菜单按钮-->
+        <img src="./img/ss.svg" class="ss" @click="headLeft=!headLeft;leftAside=!leftAside"/>
+            <!--<img src="./img/full.svg" class="ss"/>
+            <img src="./img/quit.svg" class="ss"/>-->
         <div class="head-right">
+
           <img class="user-photo" src="./img/user-photo.jpg"/>
           <el-dropdown class="user-content">
             <span class="el-dropdown-link">keke<i class="el-icon-arrow-down el-icon--right"></i>
@@ -27,85 +33,87 @@
       </el-header>
 
       <el-container class="my-main">
+        <!--动画-->
+        <!--<transition enterActiveClass="animated fadeInLeft" leaveActiveClass="animated fadeOutLeft">-->
 
-        <!--左侧菜单-->
-        <el-aside class="my-aside">
-          <!--头像-->
-          <div class="online">
-            <img class="online-user" src="./img/user-photo.jpg"/>
-          </div>
-          <!--  <left-menu></left-menu>-->
+
           <!--左侧菜单-->
-          <el-row class="tac">
-            <el-col :span="24">
+          <el-aside class="my-aside" v-show="leftAside">
+            <!--头像-->
+            <div class="online">
+              <img class="online-user" src="./img/user-photo.jpg"/>
+            </div>
 
-              <el-menu :default-active="defaultActive" class="el-menu-vertical-demo" @open="handleOpen"
-                       @close="handleClose"
-                       background-color="#272930" text-color="#fff" active-text-color="#2494F2" :router="routeflag"
-                       :unique-opened="true"
-              >
+            <!--左侧菜单-->
+            <el-row class="tac">
+              <el-col :span="24">
 
-                <el-submenu index="/home">
-                  <template slot="title">
-                    <i class="el-icon-location"></i>
-                    <span>basicForm</span>
-                  </template>
+                <el-menu :default-active="defaultActive" class="el-menu-vertical-demo" @open="handleOpen"
+                         @close="handleClose"
+                         background-color="#272930" text-color="#fff" active-text-color="#2494F2" :router="routeflag"
+                         :unique-opened="true">
 
-                  <el-menu-item-group>
-                    <el-menu-item index="/otherBasic">Basic-1</el-menu-item>
-                    <el-menu-item index="/otherBasic2">Basic-2</el-menu-item>
-                    <el-menu-item index="/otherBasic3">Basic-3</el-menu-item>
-
-                  </el-menu-item-group>
-
-                  <el-submenu index="/example">
+                  <el-submenu index="/home">
                     <template slot="title">
-                      <i class="el-icon-tickets"></i>
-                      <span>example</span>
+                      <i class="el-icon-location"></i>
+                      <span>basicForm</span>
                     </template>
-                    <el-menu-item index="/example">example</el-menu-item>
+
+                    <el-menu-item-group>
+                      <el-menu-item index="/otherBasic">Basic-1</el-menu-item>
+                      <el-menu-item index="/otherBasic2">Basic-2</el-menu-item>
+                      <el-menu-item index="/otherBasic3">Basic-3</el-menu-item>
+
+                    </el-menu-item-group>
+
+                    <el-submenu index="/example">
+                      <template slot="title">
+                        <i class="el-icon-tickets"></i>
+                        <span>example</span>
+                      </template>
+                      <el-menu-item index="/example">example</el-menu-item>
+                    </el-submenu>
                   </el-submenu>
-                </el-submenu>
 
 
-                <el-submenu index="/tableAndTree">
-                  <template slot="title">
-                    <i class="el-icon-menu"></i>
-                    <span>tableAndTree</span>
-                  </template>
-                  <el-menu-item index="/tableAndTree">
-                    <el-menu-item index="/tableAndTree">tableAndTree</el-menu-item>
-                  </el-menu-item>
-                </el-submenu>
-                <el-submenu index="/dialog">
-                  <template slot="title">
-                    <i class="el-icon-setting"></i>
-                    <span>others</span>
-                  </template>
-                  <el-menu-item-group>
-                    <el-menu-item index="/dialog">dialog</el-menu-item>
-                    <el-menu-item index="/collapse">collapse</el-menu-item>
-                    <el-menu-item index="/carousel">carousel</el-menu-item>
-                    <el-menu-item index="/charts">charts</el-menu-item>
-                  </el-menu-item-group>
-                </el-submenu>
-              </el-menu>
-            </el-col>
-          </el-row>
-        </el-aside>
-
+                  <el-submenu index="/tableAndTree">
+                    <template slot="title">
+                      <i class="el-icon-menu"></i>
+                      <span>tableAndTree</span>
+                    </template>
+                    <el-menu-item index="/tableAndTree">
+                      <el-menu-item index="/tableAndTree">tableAndTree</el-menu-item>
+                    </el-menu-item>
+                  </el-submenu>
+                  <el-submenu index="/dialog">
+                    <template slot="title">
+                      <i class="el-icon-setting"></i>
+                      <span>others</span>
+                    </template>
+                    <el-menu-item-group>
+                      <el-menu-item index="/dialog">dialog</el-menu-item>
+                      <el-menu-item index="/collapse">collapse</el-menu-item>
+                      <el-menu-item index="/carousel">carousel</el-menu-item>
+                      <el-menu-item index="/charts">charts</el-menu-item>
+                    </el-menu-item-group>
+                  </el-submenu>
+                </el-menu>
+              </el-col>
+            </el-row>
+          </el-aside>
+       <!-- </transition>-->
         <!--内容-->
         <el-container class="my-content">
           <!--导航栏-->
           <div class="tab">
             <el-tabs v-model="activeName" class="content-tabs" closable @tab-remove="removeTab"
                      v-show="tabList.length>0" @tab-click="handleClick">
-              <el-tab-pane  class="tab-pane"
-                v-for="(item, index) in tabList"
-                :key="item.name"
-                :label="item.title"
-                :name="item.name"
-                :path="item.path">
+              <el-tab-pane class="tab-pane"
+                           v-for="(item, index) in tabList"
+                           :key="item.name"
+                           :label="item.title"
+                           :name="item.name"
+                           :path="item.path">
               </el-tab-pane>
 
             </el-tabs>
@@ -115,6 +123,7 @@
           <el-main class="content-main">
             <!--点击左侧菜单跳转页面展示在里面-->
             <router-view></router-view>
+
           </el-main>
 
           <el-footer class="my-foot"></el-footer>
@@ -126,12 +135,13 @@
 </template>
 
 <script>
-  import LeftMenu from './left-menu';
   import Form from './Form';
   export default{
     name: 'home',
     data(){
       return {
+        headLeft: true,
+        leftAside: true,
         defaultActive: '/otherBasic',
         activeName: '',
         routeflag: true,
@@ -187,7 +197,7 @@
 
     },
     components: {
-      LeftMenu, Form
+      Form
     },
     created(){
     },
@@ -247,15 +257,20 @@
 
   }
 
+  .my-header > button {
+    padding: 0px;
+    border: none;
+  }
+
   .my-main {
-    background-color: #D3DCE6;
+    background-color: #fff;
     color: #333;
     height: 95%;
   }
 
   .my-content {
     height: 100%;
-    margin-left: 300px
+    /* margin-left: 300px*/
   }
 
   .my-aside {
@@ -263,7 +278,7 @@
     color: #c9d4f6;
     height: 100%;
     width: 280px;
-    position: fixed;
+    /*position: fixed;*/
     border-top: 1px solid #333;
     padding-bottom: 30px;
   }
@@ -324,7 +339,7 @@
 
   .user-content {
     position: absolute;
-    left: 44px;
+    left: 50px;
     top: 50%;
     color: #fff;
   }
@@ -352,19 +367,27 @@
     display: none;
   }
 
+
   .content-tabs {
     background: #fff;
     padding-top: 15px;
     width: 100%;
   }
-.tab{
-  padding: 0 20px;
-  background: #fff;
-}
-.tab-pane{
 
-/*  margin-left: 10px;*/
-}
+
+
+  .tab {
+    padding: 0 20px;
+    background: #fff;
+  }
+
+  .ss {
+    width: 30px;
+    height: 40px;
+    margin-left: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
 
 
 </style>
